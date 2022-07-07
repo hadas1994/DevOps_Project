@@ -2,8 +2,16 @@
 
 from flask import Flask, request
 from db_connector import insert_user, get_data, delete_data, put_data
+import os
+import signal
 app = Flask(__name__)
 users = {}
+
+
+@app.route('/stop_server')
+def stop_server():
+    os.kill(os.getpid(), signal.CTRL_C_EVENT)
+    return 'Server stopped'
 
 
 @app.route('/user/<user_id>', methods=['GET', 'POST', 'DELETE', 'PUT'])

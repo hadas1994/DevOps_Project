@@ -2,8 +2,16 @@
 
 import pymysql
 from flask import Flask, request
+import os
+import signal
 app = Flask(__name__)
 users = {}
+
+
+@app.route('/stop_server')
+def stop_server():
+    os.kill(os.getpid(), signal.CTRL_C_EVENT)
+    return 'Server stopped'
 
 
 @app.route('/users/get_user_data/<user_id>')
