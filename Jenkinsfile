@@ -14,6 +14,11 @@ pipeline {
                 bat 'start /min python rest_app.py'
             }
         }
+        stage('install pymysql') {
+            steps {
+                bat 'pip install pymysql'
+            }
+        }
         stage('Run web_app.py (frontend)') {
             steps {
                 bat 'web_app.py'
