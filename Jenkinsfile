@@ -24,6 +24,11 @@ pipeline {
                 bat 'start /min web_app.py'
             }
         }
+        stage('install requests') {
+            steps {
+                bat 'pip install requests'
+            }
+        }
         stage('Run backend_testing.py') {
             steps {
                 bat 'python backend_testing.py'
