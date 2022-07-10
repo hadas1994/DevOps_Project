@@ -21,12 +21,12 @@ pipeline {
         }
         stage('Run web_app.py (frontend)') {
             steps {
-                bat 'web_app.py'
+                bat 'start /min web_app.py'
             }
         }
         stage('Run backend_testing.py') {
             steps {
-                bat 'start /min python backend_testing.py'
+                bat 'python backend_testing.py'
             }
         }
         stage('Run frontend _testing.py') {
