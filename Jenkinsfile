@@ -34,7 +34,7 @@ pipeline {
                 bat 'python backend_testing.py'
             }
         }
-        stage('Run frontend _testing.py') {
+        stage('Run frontend_testing.py') {
             steps {
                 bat 'python frontend_testing.py'
             }
