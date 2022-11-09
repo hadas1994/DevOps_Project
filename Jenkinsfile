@@ -10,6 +10,7 @@ pipeline {
             steps {
                 script {
                     properties([pipelineTriggers([pollSCM('0,30 * * * *')])])
+                    properties([buildDiscarder(logRotator(daysToKeepStr: '5', numToKeepStr: '20'))])
                 }
                 git 'https://github.com/hadas1994/DevOps_Project.git'
             }
