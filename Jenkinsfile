@@ -30,7 +30,6 @@ pipeline {
                 bat 'python backend_testing.py'
             }
         }
-
         stage('Run clean_environment.py') {
             steps {
                 bat 'python clean_environment.py'
