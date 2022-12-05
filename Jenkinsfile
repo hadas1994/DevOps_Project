@@ -55,6 +55,11 @@ pipeline {
                 bat "docker-compose up -d --wait"
             }
         }
+        stage('Run docker_backend_testing.py') {
+            steps {
+                bat 'python docker_backend_testing.py'
+            }
+        }
     }
     post {
     always {
